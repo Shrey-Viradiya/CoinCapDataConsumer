@@ -21,6 +21,6 @@ public class App
     }
     public static void main( String[] args ) throws IOException {
         ConfigObject applicationConfiguration = readConfigFromResource("configuration.yaml");
-        System.out.println(applicationConfiguration.getHost());
+        System.out.println(applicationConfiguration.host());
     }
 }
