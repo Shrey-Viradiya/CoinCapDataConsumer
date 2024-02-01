@@ -1,4 +1,4 @@
 package org.sv.data.config;
 
-public record ConfigObject (String host) {
+public record ConfigObject (String host, Integer pollingInterval) {
 }

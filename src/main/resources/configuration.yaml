@@ -1,1 +1,2 @@
-host: api.coincap.io
+host: https://api.coincap.io
+pollingInterval: 10000
