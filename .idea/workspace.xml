@@ -8,13 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a31a77c5-95c3-4c0d-aae2-4be6d3a77fb2" name="Changes" comment="Implemented Logger and added RateInfo DTO">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/dto/RateInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/consumers/AssetsDataConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/consumers/AssetsDataConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/consumers/ExchangeDataConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/consumers/ExchangeDataConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/sv/data/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/sv/data/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +148,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706973356321</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Implemented Logger and added RateInfo DTO">
+      <option name="closed" value="true" />
+      <created>1706974055851</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1706974055851</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
