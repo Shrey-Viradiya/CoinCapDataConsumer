@@ -7,9 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a31a77c5-95c3-4c0d-aae2-4be6d3a77fb2" name="Changes" comment="Implemented Logger and added RateInfo DTO">
+    <list default="true" id="a31a77c5-95c3-4c0d-aae2-4be6d3a77fb2" name="Changes" comment="Removed unused tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/sv/data/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/sv/data/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/sv/data/AppTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +157,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706974055851</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Removed unused tests">
+      <option name="closed" value="true" />
+      <created>1706974161366</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1706974161366</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -167,7 +176,8 @@
     <MESSAGE value="Fetching the exchange data" />
     <MESSAGE value="Added Assets Data" />
     <MESSAGE value="Implemented Logger and added RateInfo DTO" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented Logger and added RateInfo DTO" />
+    <MESSAGE value="Removed unused tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed unused tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -176,6 +186,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/sv/data/consumers/ExchangeDataConsumer.java</url>
           <line>22</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/sv/data/App.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
