@@ -1,4 +1,4 @@
-package org.sv.data;
+package org.sv.data.consumers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.sv.data.dto.ExchangesResponse;
@@ -17,7 +17,7 @@ public class ExchangeDataConsumer implements Callable {
 
     @Override
     public Object call() throws Exception {
-        String URI = this.getHost() + BASE_PATH;
+        String URI = this.host + BASE_PATH;
         System.out.println("GET request to " + URI);
         String response = RESTHelper.executeGetRequest(URI);
         ExchangesResponse exchangeInfoList = new ObjectMapper().readValue(
@@ -28,7 +28,4 @@ public class ExchangeDataConsumer implements Callable {
         return response;
     }
 
-    public String getHost() {
-        return host;
-    }
 }

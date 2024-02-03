@@ -2,7 +2,7 @@ package org.sv.data.dto;
 
 import java.util.List;
 
-public record ExchangesResponse(
-        List<ExchangeInfo> data,
+public record AssetsResponse(
+        List<AssetInfo> data,
         Long timestamp) {
 }

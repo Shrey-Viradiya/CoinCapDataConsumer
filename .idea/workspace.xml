@@ -7,17 +7,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a31a77c5-95c3-4c0d-aae2-4be6d3a77fb2" name="Changes" comment="Using Records instead of lombok">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/ExchangeDataConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/dto/ExchangeInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/dto/ExchangesResponse.java" afterDir="false" />
+    <list default="true" id="a31a77c5-95c3-4c0d-aae2-4be6d3a77fb2" name="Changes" comment="Added Assets Data">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/consumers/AssetsDataConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/dto/AssetInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/dto/AssetsResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/dto/RateInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/config/ConfigObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/config/ConfigObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/utilities/RESTHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/utilities/RESTHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/configuration.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/configuration.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/ExchangeDataConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/consumers/ExchangeDataConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/dto/ExchangesResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/dto/ExchangesResponse.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +83,7 @@
       <module name="CoinCapDataConsumer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.sv.data.*" />
+          <option name="PATTERN" value="org.sv.data.consumers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -140,20 +138,31 @@
       <option name="project" value="LOCAL" />
       <updated>1706798133188</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fetching the exchange data">
+      <option name="closed" value="true" />
+      <created>1706811905284</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1706811905284</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="CoinCapDataConsumer First Commit" />
     <MESSAGE value="Added README.MD" />
     <MESSAGE value="Using Records instead of lombok" />
-    <option name="LAST_COMMIT_MESSAGE" value="Using Records instead of lombok" />
+    <MESSAGE value="Fetching Data from the exchange" />
+    <MESSAGE value="Fetching the exchange data" />
+    <MESSAGE value="Added Assets Data" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Assets Data" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/sv/data/ExchangeDataConsumer.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/org/sv/data/consumers/ExchangeDataConsumer.java</url>
           <line>22</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
