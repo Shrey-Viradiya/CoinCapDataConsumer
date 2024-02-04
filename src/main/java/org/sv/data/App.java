@@ -6,9 +6,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.sv.data.config.ConfigObject;
 import org.sv.data.consumers.DataConsumer;
-import org.sv.data.dto.AssetsResponse;
-import org.sv.data.dto.ExchangesResponse;
-import org.sv.data.dto.RatesResponse;
+import org.sv.data.dto.AssetInfo;
+import org.sv.data.dto.ExchangeInfo;
+import org.sv.data.dto.MarketInfo;
+import org.sv.data.dto.RateInfo;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,9 +30,10 @@ public class App {
         ExecutorService executor = Executors.newFixedThreadPool(availableProcessors);
 
         Collection callables = new ArrayList();
-        callables.add(new DataConsumer<ExchangesResponse>(applicationConfiguration.host(), "/v2/exchanges"));
-        callables.add(new DataConsumer<AssetsResponse>(applicationConfiguration.host(), "/v2/assets"));
-        callables.add(new DataConsumer<RatesResponse>(applicationConfiguration.host(), "/v2/rates"));
+        callables.add(new DataConsumer<ExchangeInfo>(applicationConfiguration.host(), "/v2/exchanges"));
+        callables.add(new DataConsumer<AssetInfo>(applicationConfiguration.host(), "/v2/assets"));
+        callables.add(new DataConsumer<RateInfo>(applicationConfiguration.host(), "/v2/rates"));
+        callables.add(new DataConsumer<MarketInfo>(applicationConfiguration.host(), "/v2/markets"));
         try {
             executor.invokeAll(callables);
         } catch (InterruptedException e) {

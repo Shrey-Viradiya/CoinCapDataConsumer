@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.sv.data.dto.DataResponse;
 import org.sv.data.utilities.RESTHelper;
 
 import java.util.concurrent.Callable;
@@ -25,9 +26,9 @@ public class DataConsumer<T> implements Callable {
         LOGGER.info("GET request to {}", URI);
         try {
             String response = RESTHelper.executeGetRequest(URI);
-            T dataResponse = new ObjectMapper().readValue(
+            DataResponse<T> dataResponse = new ObjectMapper().readValue(
                     response,
-                    new TypeReference<T>() {
+                    new TypeReference<DataResponse<T>>() {
                     }
             );
             LOGGER.info(dataResponse);

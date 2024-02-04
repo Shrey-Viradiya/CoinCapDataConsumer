@@ -2,8 +2,8 @@ package org.sv.data.dto;
 
 import java.util.List;
 
-public record RatesResponse(
-        List<RateInfo> data,
+public record DataResponse<T>(
+        List<T> data,
         Long timestamp
 ) {
 }

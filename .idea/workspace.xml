@@ -7,13 +7,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a31a77c5-95c3-4c0d-aae2-4be6d3a77fb2" name="Changes" comment="Removed unused tests and logging corrected">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/consumers/DataConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/dto/RatesResponse.java" afterDir="false" />
+    <list default="true" id="a31a77c5-95c3-4c0d-aae2-4be6d3a77fb2" name="Changes" comment="Removing All the consumers and creating a single consumer">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/dto/DataResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/dto/MarketInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/consumers/AssetsDataConsumer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/consumers/ExchangeDataConsumer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/consumers/DataConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/consumers/DataConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/dto/AssetsResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/dto/ExchangesResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/dto/RatesResponse.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +179,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706975324043</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Removing All the consumers and creating a single consumer">
+      <option name="closed" value="true" />
+      <created>1707023292901</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1707023292901</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -190,7 +200,8 @@
     <MESSAGE value="Implemented Logger and added RateInfo DTO" />
     <MESSAGE value="Removed unused tests" />
     <MESSAGE value="Removed unused tests and logging corrected" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed unused tests and logging corrected" />
+    <MESSAGE value="Removing All the consumers and creating a single consumer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removing All the consumers and creating a single consumer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -202,7 +213,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/sv/data/App.java</url>
-          <line>24</line>
+          <line>25</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
