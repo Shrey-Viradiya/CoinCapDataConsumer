@@ -1,20 +1,21 @@
 package org.sv.data.consumers;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.sv.data.dto.ExchangesResponse;
 import org.sv.data.utilities.RESTHelper;
 
 import java.util.concurrent.Callable;
 
-public class ExchangeDataConsumer implements Callable {
-    private static final Logger LOGGER = LogManager.getLogger(ExchangeDataConsumer.class);
-    private static final String BASE_PATH = "/v2/exchanges";
+public class DataConsumer<T> implements Callable {
 
+    private static final Logger LOGGER = LogManager.getLogger(DataConsumer.class);
+    private final String BASE_PATH;
     private final String host;
 
-    public ExchangeDataConsumer(String host) {
+    public DataConsumer(String host, String basePath) {
+        this.BASE_PATH = basePath;
         this.host = host;
     }
 
@@ -24,16 +25,16 @@ public class ExchangeDataConsumer implements Callable {
         LOGGER.info("GET request to {}", URI);
         try {
             String response = RESTHelper.executeGetRequest(URI);
-            ExchangesResponse exchangeInfoList = new ObjectMapper().readValue(
+            T dataResponse = new ObjectMapper().readValue(
                     response,
-                    ExchangesResponse.class
+                    new TypeReference<T>() {
+                    }
             );
-            LOGGER.info(exchangeInfoList.data());
+            LOGGER.info(dataResponse);
             return response;
         } catch (Exception e) {
             LOGGER.error(e);
         }
         return null;
     }
-
 }
