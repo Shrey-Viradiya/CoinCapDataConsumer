@@ -2,12 +2,12 @@
     <Appenders>
         <Console name="STDOUT" target="SYSTEM_OUT">
             <PatternLayout
-                    pattern="%d{yyyy-MM-dd HH:mm:ss} --- thread_name=%tn --- %p %m%n"/>
+                    pattern="%p %d{yyyy-MM-dd HH:mm:ss} --- %tn --- %m%n"/>
         </Console>
     </Appenders>
 
     <Loggers>
-        <Root level="all">
+        <Root level="INFO">
             <AppenderRef ref="STDOUT"/>
         </Root>
     </Loggers>

@@ -9,6 +9,4 @@ public record ExchangeInfo(
         String tradingPairs,
         boolean socket,
         String exchangeUrl,
-        long updated
-) {
-}
+        long updated) {}

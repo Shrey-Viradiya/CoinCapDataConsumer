@@ -12,8 +12,6 @@ public record MarketInfo(
         String volumeUsd24Hr,
         String percentExchangeVolume,
         String tradesCount24Hr,
-        long updated
-) {
+        long updated) {
     // Any additional methods or customization can be added here if needed
 }
-

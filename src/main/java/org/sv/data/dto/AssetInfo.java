@@ -12,6 +12,4 @@ public record AssetInfo(
         String priceUsd,
         String changePercent24Hr,
         String vwap24Hr,
-        String explorer
-) {
-}
+        String explorer) {}

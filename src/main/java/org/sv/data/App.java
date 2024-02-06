@@ -5,11 +5,14 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.sv.data.config.ConfigObject;
-import org.sv.data.consumers.DataConsumer;
+import org.sv.data.consumers.RESTDataConsumer;
+import org.sv.data.consumers.WebSocketDataConsumer;
 import org.sv.data.dto.AssetInfo;
 import org.sv.data.dto.ExchangeInfo;
 import org.sv.data.dto.MarketInfo;
 import org.sv.data.dto.RateInfo;
+import org.sv.data.socketendpoints.PriceDataWebSocketEndPoint;
+import org.sv.data.socketendpoints.TradesDataWebSocketEndpoint;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,16 +33,31 @@ public class App {
         ExecutorService executor = Executors.newFixedThreadPool(availableProcessors);
 
         Collection callables = new ArrayList();
-        callables.add(new DataConsumer<ExchangeInfo>(applicationConfiguration.host(), "/v2/exchanges"));
-        callables.add(new DataConsumer<AssetInfo>(applicationConfiguration.host(), "/v2/assets"));
-        callables.add(new DataConsumer<RateInfo>(applicationConfiguration.host(), "/v2/rates"));
-        callables.add(new DataConsumer<MarketInfo>(applicationConfiguration.host(), "/v2/markets"));
+        callables.add(new RESTDataConsumer<ExchangeInfo>(
+                applicationConfiguration.host(),
+                Constants.EXCHANGES_DATA_ENDPOINT,
+                applicationConfiguration.pollingInterval()));
+        callables.add(new RESTDataConsumer<AssetInfo>(
+                applicationConfiguration.host(),
+                Constants.ASSETS_DATA_ENDPOINT,
+                applicationConfiguration.pollingInterval()));
+        callables.add(new RESTDataConsumer<RateInfo>(
+                applicationConfiguration.host(),
+                Constants.RATES_DATA_ENDPOINT,
+                applicationConfiguration.pollingInterval()));
+        callables.add(new RESTDataConsumer<MarketInfo>(
+                applicationConfiguration.host(),
+                Constants.MARKETS_DATA_ENDPOINT,
+                applicationConfiguration.pollingInterval()));
+        callables.add(
+                new WebSocketDataConsumer<>(Constants.PRICES_DATA_WEBSOCKET_URL, PriceDataWebSocketEndPoint.class));
+        callables.add(
+                new WebSocketDataConsumer<>(Constants.TRADES_DATA_WEBSOCKET_URL, TradesDataWebSocketEndpoint.class));
         try {
             executor.invokeAll(callables);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-
         executor.shutdownNow();
     }
 
