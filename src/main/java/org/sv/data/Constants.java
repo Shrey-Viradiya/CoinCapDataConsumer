@@ -6,5 +6,5 @@ public class Constants {
     public static final String RATES_DATA_ENDPOINT = "/v2/rates";
     public static final String MARKETS_DATA_ENDPOINT = "/v2/markets";
     public static final String PRICES_DATA_WEBSOCKET_URL = "wss://ws.coincap.io/prices?assets=ALL";
-    public static final String TRADES_DATA_WEBSOCKET_URL = "wss://ws.coincap.io/trades/binance";
+    public static final String TRADES_DATA_WEBSOCKET_URL = "wss://ws.coincap.io/trades/EXCHANGE";
 }

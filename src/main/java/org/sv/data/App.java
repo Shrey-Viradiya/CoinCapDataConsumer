@@ -17,6 +17,8 @@ import org.sv.data.dto.AssetInfo;
 import org.sv.data.dto.ExchangeInfo;
 import org.sv.data.dto.MarketInfo;
 import org.sv.data.dto.RateInfo;
+import org.sv.data.handler.DataStoringHandler;
+import org.sv.data.handler.SimpleDataHandler;
 import org.sv.data.socketendpoints.PriceDataWebSocketEndPoint;
 import org.sv.data.socketendpoints.TradesDataWebSocketEndpoint;
 
@@ -32,7 +34,13 @@ public class App {
         ExecutorService executor = Executors.newFixedThreadPool(availableProcessors);
 
         try {
-            executor.invokeAll(getCallables(applicationConfiguration));
+            executor.invokeAll(getRESTDataConsumerCallables(applicationConfiguration));
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        try {
+            executor.invokeAll(getWebSocketConsumerCallables(applicationConfiguration));
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -50,28 +58,48 @@ public class App {
         }
     }
 
-    private static Collection getCallables(ConfigObject applicationConfiguration) {
+    private static Collection getRESTDataConsumerCallables(ConfigObject applicationConfiguration) {
         Collection callables = new ArrayList();
         callables.add(new RESTDataConsumer<ExchangeInfo>(
                 applicationConfiguration.host(),
                 Constants.EXCHANGES_DATA_ENDPOINT,
-                applicationConfiguration.pollingInterval()));
+                applicationConfiguration.pollingInterval(),
+                new DataStoringHandler<>(ExchangeInfo.class)));
         callables.add(new RESTDataConsumer<AssetInfo>(
                 applicationConfiguration.host(),
                 Constants.ASSETS_DATA_ENDPOINT,
-                applicationConfiguration.pollingInterval()));
+                applicationConfiguration.pollingInterval(),
+                new SimpleDataHandler()));
         callables.add(new RESTDataConsumer<RateInfo>(
                 applicationConfiguration.host(),
                 Constants.RATES_DATA_ENDPOINT,
-                applicationConfiguration.pollingInterval()));
+                applicationConfiguration.pollingInterval(),
+                new SimpleDataHandler()));
         callables.add(new RESTDataConsumer<MarketInfo>(
                 applicationConfiguration.host(),
                 Constants.MARKETS_DATA_ENDPOINT,
-                applicationConfiguration.pollingInterval()));
+                applicationConfiguration.pollingInterval(),
+                new SimpleDataHandler()));
+        return callables;
+    }
+
+    private static Collection getWebSocketConsumerCallables(ConfigObject applicationConfiguration) {
+        try {
+            Thread.sleep(applicationConfiguration.pollingInterval());
+        } catch (InterruptedException e) {
+            LOGGER.error("Thread Sleep Failed", e);
+        }
+
+        Collection callables = new ArrayList();
         callables.add(
                 new WebSocketDataConsumer<>(Constants.PRICES_DATA_WEBSOCKET_URL, PriceDataWebSocketEndPoint.class));
-        callables.add(
-                new WebSocketDataConsumer<>(Constants.TRADES_DATA_WEBSOCKET_URL, TradesDataWebSocketEndpoint.class));
+
+        DataStore.getExchangeInfoList()
+                .keysView()
+                .forEach(exchange -> callables.add(new WebSocketDataConsumer<>(
+                        Constants.TRADES_DATA_WEBSOCKET_URL.replace("EXCHANGE", exchange),
+                        TradesDataWebSocketEndpoint.class)));
+
         return callables;
     }
 }
