@@ -2,6 +2,12 @@ package org.sv.data;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.sv.data.config.ConfigObject;
@@ -14,13 +20,6 @@ import org.sv.data.dto.RateInfo;
 import org.sv.data.socketendpoints.PriceDataWebSocketEndPoint;
 import org.sv.data.socketendpoints.TradesDataWebSocketEndpoint;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 public class App {
 
     private static final Logger LOGGER = LogManager.getLogger(App.class);
@@ -32,6 +31,26 @@ public class App {
 
         ExecutorService executor = Executors.newFixedThreadPool(availableProcessors);
 
+        try {
+            executor.invokeAll(getCallables(applicationConfiguration));
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        executor.shutdownNow();
+    }
+
+    public static ConfigObject readConfigFromResource(String resourceName) throws IOException {
+        try (InputStream inputStream = App.class.getClassLoader().getResourceAsStream(resourceName)) {
+            if (inputStream == null) {
+                throw new IOException("Resource not found");
+            }
+
+            ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
+            return objectMapper.readValue(inputStream, ConfigObject.class);
+        }
+    }
+
+    private static Collection getCallables(ConfigObject applicationConfiguration) {
         Collection callables = new ArrayList();
         callables.add(new RESTDataConsumer<ExchangeInfo>(
                 applicationConfiguration.host(),
@@ -53,22 +72,6 @@ public class App {
                 new WebSocketDataConsumer<>(Constants.PRICES_DATA_WEBSOCKET_URL, PriceDataWebSocketEndPoint.class));
         callables.add(
                 new WebSocketDataConsumer<>(Constants.TRADES_DATA_WEBSOCKET_URL, TradesDataWebSocketEndpoint.class));
-        try {
-            executor.invokeAll(callables);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        executor.shutdownNow();
-    }
-
-    public static ConfigObject readConfigFromResource(String resourceName) throws IOException {
-        try (InputStream inputStream = App.class.getClassLoader().getResourceAsStream(resourceName)) {
-            if (inputStream == null) {
-                throw new IOException("Resource not found");
-            }
-
-            ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
-            return objectMapper.readValue(inputStream, ConfigObject.class);
-        }
+        return callables;
     }
 }
