@@ -13,27 +13,36 @@ public class RESTDataConsumer<T> implements Callable {
     private final String host;
     private final int pollingInterval;
     private final AbstractDataHandler dataHandler;
+    private int runCount;
 
-    public RESTDataConsumer(String host, String basePath, int pollingInterval, AbstractDataHandler dataHandler) {
-        this.BASE_PATH = basePath;
+    public RESTDataConsumer(
+            String host, String basePath, int pollingInterval, AbstractDataHandler dataHandler, int runCount) {
+        this(host, basePath, pollingInterval, dataHandler);
+        this.runCount = runCount;
+    }
+
+    public RESTDataConsumer(String host, String BASE_PATH, int pollingInterval, AbstractDataHandler dataHandler) {
+        this.BASE_PATH = BASE_PATH;
         this.host = host;
         this.pollingInterval = pollingInterval;
         this.dataHandler = dataHandler;
+        this.runCount = -1;
     }
 
     @Override
     public Object call() {
         String URI = this.host + BASE_PATH;
 
-        while (true) {
+        while (runCount == -1 || runCount-- > 0) {
             LOGGER.info("GET request to {}", URI);
             try {
                 String response = RESTHelper.executeGetRequest(URI);
                 dataHandler.handleData(response);
-                Thread.sleep(this.pollingInterval);
+                if (runCount != 0) Thread.sleep(this.pollingInterval);
             } catch (Exception e) {
                 LOGGER.error(e);
             }
         }
+        return new Object();
     }
 }

@@ -10,6 +10,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.eclipse.collections.impl.list.mutable.FastList;
 import org.sv.data.config.ConfigObject;
 import org.sv.data.consumers.RESTDataConsumer;
 import org.sv.data.consumers.WebSocketDataConsumer;
@@ -34,16 +35,21 @@ public class App {
         ExecutorService executor = Executors.newFixedThreadPool(availableProcessors);
 
         try {
-            executor.invokeAll(getRESTDataConsumerCallables(applicationConfiguration));
+            executor.invokeAll(getInitilizationCallables(applicationConfiguration));
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
 
+        Collection callables = FastList.newList();
+        callables.addAll(getRESTDataConsumerCallables(applicationConfiguration));
+        callables.addAll(getWebSocketConsumerCallables(applicationConfiguration));
+
         try {
-            executor.invokeAll(getWebSocketConsumerCallables(applicationConfiguration));
+            executor.invokeAll(callables);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+
         executor.shutdownNow();
     }
 
@@ -56,6 +62,17 @@ public class App {
             ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
             return objectMapper.readValue(inputStream, ConfigObject.class);
         }
+    }
+
+    private static Collection getInitilizationCallables(ConfigObject applicationConfiguration) {
+        Collection callables = new ArrayList();
+        callables.add(new RESTDataConsumer<ExchangeInfo>(
+                applicationConfiguration.host(),
+                Constants.EXCHANGES_DATA_ENDPOINT,
+                applicationConfiguration.pollingInterval(),
+                new DataStoringHandler<>(ExchangeInfo.class),
+                1));
+        return callables;
     }
 
     private static Collection getRESTDataConsumerCallables(ConfigObject applicationConfiguration) {
