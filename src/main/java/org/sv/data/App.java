@@ -2,12 +2,14 @@ package org.sv.data;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.eclipse.collections.impl.list.mutable.FastList;
@@ -32,13 +34,10 @@ public class App {
         int availableProcessors = Runtime.getRuntime().availableProcessors();
         LOGGER.info("Starting with the no of processors: {}", availableProcessors);
 
-        ExecutorService executor = Executors.newFixedThreadPool(availableProcessors);
+        ThreadFactory threadFactory =
+                new ThreadFactoryBuilder().setNameFormat("my-awesome-thread-%d").build();
 
-        try {
-            executor.invokeAll(getInitilizationCallables(applicationConfiguration));
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        ExecutorService executor = Executors.newFixedThreadPool(availableProcessors, threadFactory);
 
         Collection callables = FastList.newList();
         callables.addAll(getRESTDataConsumerCallables(applicationConfiguration));
@@ -62,17 +61,6 @@ public class App {
             ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
             return objectMapper.readValue(inputStream, ConfigObject.class);
         }
-    }
-
-    private static Collection getInitilizationCallables(ConfigObject applicationConfiguration) {
-        Collection callables = new ArrayList();
-        callables.add(new RESTDataConsumer<ExchangeInfo>(
-                applicationConfiguration.host(),
-                Constants.EXCHANGES_DATA_ENDPOINT,
-                applicationConfiguration.pollingInterval(),
-                new DataStoringHandler<>(ExchangeInfo.class),
-                1));
-        return callables;
     }
 
     private static Collection getRESTDataConsumerCallables(ConfigObject applicationConfiguration) {
@@ -111,11 +99,8 @@ public class App {
         callables.add(
                 new WebSocketDataConsumer<>(Constants.PRICES_DATA_WEBSOCKET_URL, PriceDataWebSocketEndPoint.class));
 
-        DataStore.getExchangeInfoList()
-                .keysView()
-                .forEach(exchange -> callables.add(new WebSocketDataConsumer<>(
-                        Constants.TRADES_DATA_WEBSOCKET_URL.replace("EXCHANGE", exchange),
-                        TradesDataWebSocketEndpoint.class)));
+        Constants.DATA_ELIGIBLE_EXCHANGES.forEach(exchange -> callables.add(new WebSocketDataConsumer<>(
+                Constants.TRADES_DATA_WEBSOCKET_URL.replace("EXCHANGE", exchange), TradesDataWebSocketEndpoint.class)));
 
         return callables;
     }

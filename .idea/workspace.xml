@@ -7,10 +7,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a31a77c5-95c3-4c0d-aae2-4be6d3a77fb2" name="Changes" comment="Using Data Handlers">
+    <list default="true" id="a31a77c5-95c3-4c0d-aae2-4be6d3a77fb2" name="Changes" comment="Initializing the environment with invoking the thread once and the getting the price data using websocket">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/consumers/RESTDataConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/consumers/RESTDataConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/socketendpoints/PriceDataWebSocketEndPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/socketendpoints/PriceDataWebSocketEndPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/socketendpoints/TradesDataWebSocketEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/socketendpoints/TradesDataWebSocketEndpoint.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +37,13 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="threads" value="1C" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
   </component>
@@ -52,7 +62,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.App.executor": "Debug",
+    "Application.App.executor": "Run",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "Maven.CoinCapDataConsumer [clean,install].executor": "Run",
     "Maven.CoinCapDataConsumer [clean,verify].executor": "Run",
@@ -67,10 +77,10 @@
     "kotlin-language-version-configured": "true",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
+    "project.structure.side.proportion": "0.2735632",
     "rearrange.code.on.save": "true",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "actions.on.save"
+    "settings.editor.selected.configurable": "promo.kubernetes"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -80,6 +90,7 @@
   </component>
   <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-11" />
       <option name="MAIN_CLASS_NAME" value="org.sv.data.App" />
       <module name="CoinCapDataConsumer" />
       <extension name="coverage">
@@ -97,14 +108,6 @@
         <item itemvalue="Application.App" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-11.0.21-corretto-11.0.21-4caba194b151-b24ef850" />
-        <option value="jdk-21.0.2-corretto-21.0.2-f644763e9732-d6553c93" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -227,7 +230,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707247378381</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Initializing the environment with invoking the thread once and the getting the price data using websocket">
+      <option name="closed" value="true" />
+      <created>1707404438105</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1707404438105</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -246,7 +257,8 @@
     <MESSAGE value="Using websocket to consumer data and spotless configuration" />
     <MESSAGE value="Refactoring" />
     <MESSAGE value="Using Data Handlers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Using Data Handlers" />
+    <MESSAGE value="Initializing the environment with invoking the thread once and the getting the price data using websocket" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initializing the environment with invoking the thread once and the getting the price data using websocket" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -267,31 +279,31 @@
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/sv/data/handler/DataStoringHandler.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/sv/data/consumers/RESTDataConsumer.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/sv/data/consumers/RESTDataConsumer.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/sv/data/consumers/RESTDataConsumer.java</url>
           <line>46</line>
-          <option name="timeStamp" value="17" />
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/sv/data/App.java</url>
-          <line>119</line>
-          <option name="timeStamp" value="19" />
+          <url>file://$PROJECT_DIR$/src/main/java/org/sv/data/consumers/WebSocketDataConsumer.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/sv/data/consumers/WebSocketDataConsumer.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/sv/data/consumers/RESTDataConsumer.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="DataStore.getExchangeInfoList()" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

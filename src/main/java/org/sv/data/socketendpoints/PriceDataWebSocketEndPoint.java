@@ -10,7 +10,7 @@ public class PriceDataWebSocketEndPoint {
     private static final Logger LOGGER = LogManager.getLogger(PriceDataWebSocketEndPoint.class);
 
     @OnMessage
-    public void onMessage(String message) {
+    public synchronized void onMessage(String message) {
         LOGGER.info("{} received: {}", this.getClass().getSimpleName(), message);
     }
 }
