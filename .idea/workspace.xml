@@ -7,13 +7,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a31a77c5-95c3-4c0d-aae2-4be6d3a77fb2" name="Changes" comment="Initializing the environment with invoking the thread once and the getting the price data using websocket">
+    <list default="true" id="a31a77c5-95c3-4c0d-aae2-4be6d3a77fb2" name="Changes" comment="Cleaning up and adding ThreadFactory">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/socketendpoints/PriceDataWebSocketEndPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/socketendpoints/PriceDataWebSocketEndPoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/socketendpoints/TradesDataWebSocketEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/socketendpoints/TradesDataWebSocketEndpoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/socketendpoints/PriceDataWebSocketEndPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/socketendpoints/SimpleDataWebSocketEndPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/socketendpoints/TradesDataWebSocketEndpoint.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +80,7 @@
     "project.structure.side.proportion": "0.2735632",
     "rearrange.code.on.save": "true",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "promo.kubernetes"
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -238,7 +238,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707404438105</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Cleaning up and adding ThreadFactory">
+      <option name="closed" value="true" />
+      <created>1707476025001</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1707476025001</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -258,7 +266,8 @@
     <MESSAGE value="Refactoring" />
     <MESSAGE value="Using Data Handlers" />
     <MESSAGE value="Initializing the environment with invoking the thread once and the getting the price data using websocket" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initializing the environment with invoking the thread once and the getting the price data using websocket" />
+    <MESSAGE value="Cleaning up and adding ThreadFactory" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaning up and adding ThreadFactory" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

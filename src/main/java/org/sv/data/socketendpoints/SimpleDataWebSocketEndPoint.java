@@ -6,8 +6,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @ClientEndpoint
-public class PriceDataWebSocketEndPoint {
-    private static final Logger LOGGER = LogManager.getLogger(PriceDataWebSocketEndPoint.class);
+public class SimpleDataWebSocketEndPoint {
+    private static final Logger LOGGER = LogManager.getLogger(SimpleDataWebSocketEndPoint.class);
 
     @OnMessage
     public synchronized void onMessage(String message) {
