@@ -7,15 +7,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a31a77c5-95c3-4c0d-aae2-4be6d3a77fb2" name="Changes" comment="Refactoring">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/handler/KafkaSinkProducerHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/kafka/KafkaSinkProducer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/socketendpoints/KafkaProducingWebSocketEndPoint.java" afterDir="false" />
+    <list default="true" id="a31a77c5-95c3-4c0d-aae2-4be6d3a77fb2" name="Changes" comment="Kafka Producer Added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/config/ConfigObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/config/ConfigObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/configuration.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/configuration.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,7 +249,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707493032688</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Kafka Producer Added">
+      <option name="closed" value="true" />
+      <created>1707563425000</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1707563425000</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -277,7 +278,8 @@
     <MESSAGE value="Initializing the environment with invoking the thread once and the getting the price data using websocket" />
     <MESSAGE value="Cleaning up and adding ThreadFactory" />
     <MESSAGE value="Refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring" />
+    <MESSAGE value="Kafka Producer Added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Kafka Producer Added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

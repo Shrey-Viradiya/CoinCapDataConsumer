@@ -3,7 +3,6 @@ package org.sv.data.utilities;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Objects;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.*;
 import org.apache.http.entity.StringEntity;
@@ -14,15 +13,16 @@ public class RESTHelper {
 
     private static CloseableHttpClient httpClient;
 
+    static {
+        httpClient = HttpClients.custom().build();
+    }
+
     public static String executeGetRequest(String url) throws IOException {
         HttpGet httpGet = new HttpGet(url);
         return executeRequest(httpGet);
     }
 
     private static String executeRequest(HttpUriRequest request) throws IOException {
-        if (Objects.isNull(httpClient)) {
-            initializeHttpClient();
-        }
         try (CloseableHttpResponse response = httpClient.execute(request)) {
             int statusCode = response.getStatusLine().getStatusCode();
             if (statusCode >= 200 && statusCode < 300) {
@@ -32,12 +32,6 @@ public class RESTHelper {
                 // Handle error responses, if needed
                 throw new IOException("Request failed with status code: " + statusCode);
             }
-        }
-    }
-
-    public static synchronized void initializeHttpClient() {
-        if (Objects.isNull(httpClient)) {
-            httpClient = HttpClients.custom().build();
         }
     }
 
