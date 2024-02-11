@@ -61,7 +61,6 @@ public class App {
                 throw new IOException("Resource not found");
             }
 
-
             ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
             return objectMapper.readValue(inputStream, ConfigObject.class);
         }
@@ -74,6 +73,7 @@ public class App {
                 Constants.EXCHANGES_DATA_ENDPOINT,
                 applicationConfiguration.pollingInterval(),
                 new DataStoringHandler<>(ExchangeInfo.class)));
+
         callables.add(new RESTDataConsumer<AssetInfo>(
                 applicationConfiguration.host(),
                 Constants.ASSETS_DATA_ENDPOINT,
@@ -85,6 +85,7 @@ public class App {
                 Constants.RATES_DATA_ENDPOINT,
                 applicationConfiguration.pollingInterval(),
                 new SimpleDataHandler()));
+
         callables.add(new RESTDataConsumer<MarketInfo>(
                 applicationConfiguration.host(),
                 Constants.MARKETS_DATA_ENDPOINT,
