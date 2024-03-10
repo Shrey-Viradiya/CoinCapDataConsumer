@@ -7,12 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a31a77c5-95c3-4c0d-aae2-4be6d3a77fb2" name="Changes" comment="Refactoring">
+    <list default="true" id="a31a77c5-95c3-4c0d-aae2-4be6d3a77fb2" name="Changes" comment="Refactoring And Consuming only Binance Price Data">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/kafka/KafkaSinkProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/kafka/KafkaSinkProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/socketendpoints/KafkaProducingWebSocketEndPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/socketendpoints/KafkaProducingWebSocketEndPoint.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -315,7 +312,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707630883228</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Refactoring And Consuming only Binance Price Data">
+      <option name="closed" value="true" />
+      <created>1710065156860</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1710065156860</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -339,7 +344,8 @@
     <MESSAGE value="Using Static Block to ensure client is initialized when the application starts" />
     <MESSAGE value="Adding check for spotless" />
     <MESSAGE value="Refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring" />
+    <MESSAGE value="Refactoring And Consuming only Binance Price Data" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring And Consuming only Binance Price Data" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
