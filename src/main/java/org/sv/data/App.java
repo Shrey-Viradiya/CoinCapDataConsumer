@@ -3,6 +3,13 @@ package org.sv.data;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.eclipse.collections.impl.list.mutable.FastList;
@@ -18,14 +25,6 @@ import org.sv.data.handler.SimpleDataHandler;
 import org.sv.data.kafka.KafkaSinkProducer;
 import org.sv.data.socketendpoints.KafkaProducingWebSocketEndPoint;
 import org.sv.data.socketendpoints.SimpleDataWebSocketEndPoint;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadFactory;
 
 public class App {
 
