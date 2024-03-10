@@ -36,8 +36,9 @@ public class App {
         KafkaSinkProducer.initialize(applicationConfiguration);
         LOGGER.info("Starting with the no of processors: {}", availableProcessors);
 
-        ThreadFactory threadFactory =
-                new ThreadFactoryBuilder().setNameFormat("my-awesome-thread-%d").build();
+        ThreadFactory threadFactory = new ThreadFactoryBuilder()
+                .setNameFormat("CoinCapDataConsumer-thread-%d")
+                .build();
 
         ExecutorService executor = Executors.newFixedThreadPool(availableProcessors, threadFactory);
 

@@ -10,5 +10,5 @@ public class Constants {
     public static final String MARKETS_DATA_ENDPOINT = "/v2/markets";
     public static final String PRICES_DATA_WEBSOCKET_URL = "wss://ws.coincap.io/prices?assets=ALL";
     public static final String TRADES_DATA_WEBSOCKET_URL = "wss://ws.coincap.io/trades/EXCHANGE";
-    public static final List<String> DATA_ELIGIBLE_EXCHANGES = FastList.newListWith("binance", "gdax", "bitfinex");
+    public static final List<String> DATA_ELIGIBLE_EXCHANGES = FastList.newListWith("binance");
 }
