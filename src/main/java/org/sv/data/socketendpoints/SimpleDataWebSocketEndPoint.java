@@ -11,6 +11,6 @@ public class SimpleDataWebSocketEndPoint {
 
     @OnMessage
     public synchronized void onMessage(String message) {
-        LOGGER.info("{} received: {}", this.getClass().getSimpleName(), message);
+        LOGGER.info("{} NSE received: {}", this.getClass().getSimpleName(), message);
     }
 }
