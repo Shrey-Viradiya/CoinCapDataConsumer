@@ -7,9 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a31a77c5-95c3-4c0d-aae2-4be6d3a77fb2" name="Changes" comment="Increasing Polling Time for REST API">
+    <list default="true" id="a31a77c5-95c3-4c0d-aae2-4be6d3a77fb2" name="Changes" comment="Adding Ethereum">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/Constants.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -370,11 +370,18 @@
       <option name="project" value="LOCAL" />
       <updated>1715962918381</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Adding Ethereum">
+      <option name="closed" value="true" />
+      <created>1716012094769</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1716012094769</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="CoinCapDataConsumer First Commit" />
     <MESSAGE value="Added README.MD" />
     <MESSAGE value="Using Records instead of lombok" />
     <MESSAGE value="Fetching Data from the exchange" />
@@ -399,7 +406,8 @@
     <MESSAGE value="Spotless" />
     <MESSAGE value="Adding time stamp in the data message" />
     <MESSAGE value="Increasing Polling Time for REST API" />
-    <option name="LAST_COMMIT_MESSAGE" value="Increasing Polling Time for REST API" />
+    <MESSAGE value="Adding Ethereum" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding Ethereum" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
