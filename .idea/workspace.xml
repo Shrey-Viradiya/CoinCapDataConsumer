@@ -7,9 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a31a77c5-95c3-4c0d-aae2-4be6d3a77fb2" name="Changes" comment="Adding Ethereum">
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+    <list default="true" id="a31a77c5-95c3-4c0d-aae2-4be6d3a77fb2" name="Changes" comment="Adding Docker File">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +114,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-11" />
       <option name="MAIN_CLASS_NAME" value="org.sv.data.App" />
       <module name="CoinCapDataConsumer" />
+      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/src/main/resources/configuration.yaml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.sv.data.consumers.*" />
@@ -378,11 +380,18 @@
       <option name="project" value="LOCAL" />
       <updated>1716012094769</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Adding Docker File">
+      <option name="closed" value="true" />
+      <created>1716013424128</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1716013424128</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added README.MD" />
     <MESSAGE value="Using Records instead of lombok" />
     <MESSAGE value="Fetching Data from the exchange" />
     <MESSAGE value="Fetching the exchange data" />
@@ -407,7 +416,8 @@
     <MESSAGE value="Adding time stamp in the data message" />
     <MESSAGE value="Increasing Polling Time for REST API" />
     <MESSAGE value="Adding Ethereum" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding Ethereum" />
+    <MESSAGE value="Adding Docker File" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding Docker File" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

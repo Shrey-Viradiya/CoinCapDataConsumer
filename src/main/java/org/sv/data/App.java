@@ -3,8 +3,9 @@ package org.sv.data;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.ExecutorService;
@@ -31,7 +32,7 @@ public class App {
     private static final Logger LOGGER = LogManager.getLogger(App.class);
 
     public static void main(String[] args) throws IOException {
-        ConfigObject applicationConfiguration = readConfigFromResource("configuration.yaml");
+        ConfigObject applicationConfiguration = readConfigFromFile(args[0]);
         int availableProcessors = Runtime.getRuntime().availableProcessors();
         KafkaSinkProducer.initialize(applicationConfiguration);
         LOGGER.info("Starting with the no of processors: {}", availableProcessors);
@@ -56,14 +57,18 @@ public class App {
         }
     }
 
-    public static ConfigObject readConfigFromResource(String resourceName) throws IOException {
-        try (InputStream inputStream = App.class.getClassLoader().getResourceAsStream(resourceName)) {
-            if (inputStream == null) {
-                throw new IOException("Resource not found");
-            }
+    public static ConfigObject readConfigFromFile(String filePath) throws IOException {
+        File file = new File(filePath);
+        if (!file.exists()) {
+            throw new IOException("File not found at " + filePath);
+        }
 
+        try (FileInputStream fileInputStream = new FileInputStream(file)) {
             ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
-            return objectMapper.readValue(inputStream, ConfigObject.class);
+            return objectMapper.readValue(fileInputStream, ConfigObject.class);
+        } catch (Exception e) {
+            LOGGER.error(e);
+            throw e;
         }
     }
 
