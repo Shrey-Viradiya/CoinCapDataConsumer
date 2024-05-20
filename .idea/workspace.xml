@@ -7,13 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a31a77c5-95c3-4c0d-aae2-4be6d3a77fb2" name="Changes" comment="Reading Configuration from file instead of resources">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/sv/data/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/sv/data/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
-    </list>
+    <list default="true" id="a31a77c5-95c3-4c0d-aae2-4be6d3a77fb2" name="Changes" comment="Log Problem Solved" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -400,11 +394,18 @@
       <option name="project" value="LOCAL" />
       <updated>1716014608907</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Log Problem Solved">
+      <option name="closed" value="true" />
+      <created>1716227152512</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1716227152512</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fetching Data from the exchange" />
     <MESSAGE value="Fetching the exchange data" />
     <MESSAGE value="Added Assets Data" />
     <MESSAGE value="Implemented Logger and added RateInfo DTO" />
@@ -429,7 +430,8 @@
     <MESSAGE value="Adding Ethereum" />
     <MESSAGE value="Adding Docker File" />
     <MESSAGE value="Reading Configuration from file instead of resources" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reading Configuration from file instead of resources" />
+    <MESSAGE value="Log Problem Solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="Log Problem Solved" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

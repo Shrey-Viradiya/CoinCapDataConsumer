@@ -73,12 +73,6 @@ public class App {
     }
 
     private static Collection getWebSocketConsumerCallables(ConfigObject applicationConfiguration) {
-        try {
-            Thread.sleep(applicationConfiguration.pollingInterval());
-        } catch (InterruptedException e) {
-            LOGGER.error("Thread Sleep Failed", e);
-        }
-
         Collection callables = new ArrayList();
         callables.add(new WebSocketDataConsumer<>(
                 Constants.PRICES_DATA_WEBSOCKET_URL, KafkaProducingWebSocketEndPoint.class));
