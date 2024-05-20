@@ -7,7 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a31a77c5-95c3-4c0d-aae2-4be6d3a77fb2" name="Changes" comment="Log Problem Solved" />
+    <list default="true" id="a31a77c5-95c3-4c0d-aae2-4be6d3a77fb2" name="Changes" comment="Waiting Reduced">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/configuration.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/configuration.yaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -402,11 +405,18 @@
       <option name="project" value="LOCAL" />
       <updated>1716227152512</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Waiting Reduced">
+      <option name="closed" value="true" />
+      <created>1716227552792</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1716227552792</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fetching the exchange data" />
     <MESSAGE value="Added Assets Data" />
     <MESSAGE value="Implemented Logger and added RateInfo DTO" />
     <MESSAGE value="Removed unused tests" />
@@ -431,7 +441,8 @@
     <MESSAGE value="Adding Docker File" />
     <MESSAGE value="Reading Configuration from file instead of resources" />
     <MESSAGE value="Log Problem Solved" />
-    <option name="LAST_COMMIT_MESSAGE" value="Log Problem Solved" />
+    <MESSAGE value="Waiting Reduced" />
+    <option name="LAST_COMMIT_MESSAGE" value="Waiting Reduced" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
