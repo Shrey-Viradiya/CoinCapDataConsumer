@@ -25,13 +25,13 @@ import org.sv.data.handler.DataStoringHandler;
 import org.sv.data.handler.SimpleDataHandler;
 import org.sv.data.kafka.KafkaSinkProducer;
 import org.sv.data.socketendpoints.KafkaProducingWebSocketEndPoint;
-import org.sv.data.socketendpoints.SimpleDataWebSocketEndPoint;
 
 public class App {
 
     private static final Logger LOGGER = LogManager.getLogger(App.class);
 
     public static void main(String[] args) throws IOException {
+        LOGGER.info("Starting Coin Cap Consumer Application");
         ConfigObject applicationConfiguration = readConfigFromFile(args[0]);
         int availableProcessors = Runtime.getRuntime().availableProcessors();
         KafkaSinkProducer.initialize(applicationConfiguration);
@@ -44,7 +44,7 @@ public class App {
         ExecutorService executor = Executors.newFixedThreadPool(availableProcessors, threadFactory);
 
         Collection callables = FastList.newList();
-        callables.addAll(getRESTDataConsumerCallables(applicationConfiguration));
+        //        callables.addAll(getRESTDataConsumerCallables(applicationConfiguration));
         callables.addAll(getWebSocketConsumerCallables(applicationConfiguration));
 
         try {
@@ -72,6 +72,24 @@ public class App {
         }
     }
 
+    private static Collection getWebSocketConsumerCallables(ConfigObject applicationConfiguration) {
+        try {
+            Thread.sleep(applicationConfiguration.pollingInterval());
+        } catch (InterruptedException e) {
+            LOGGER.error("Thread Sleep Failed", e);
+        }
+
+        Collection callables = new ArrayList();
+        callables.add(new WebSocketDataConsumer<>(
+                Constants.PRICES_DATA_WEBSOCKET_URL, KafkaProducingWebSocketEndPoint.class));
+
+        //        Constants.DATA_ELIGIBLE_EXCHANGES.forEach(exchange -> callables.add(new WebSocketDataConsumer<>(
+        //                Constants.TRADES_DATA_WEBSOCKET_URL.replace("EXCHANGE", exchange),
+        // SimpleDataWebSocketEndPoint.class)));
+
+        return callables;
+    }
+
     private static Collection getRESTDataConsumerCallables(ConfigObject applicationConfiguration) {
         Collection callables = new ArrayList();
         callables.add(new RESTDataConsumer<ExchangeInfo>(
@@ -97,23 +115,6 @@ public class App {
                 Constants.MARKETS_DATA_ENDPOINT,
                 applicationConfiguration.pollingInterval(),
                 new SimpleDataHandler()));
-        return callables;
-    }
-
-    private static Collection getWebSocketConsumerCallables(ConfigObject applicationConfiguration) {
-        try {
-            Thread.sleep(applicationConfiguration.pollingInterval());
-        } catch (InterruptedException e) {
-            LOGGER.error("Thread Sleep Failed", e);
-        }
-
-        Collection callables = new ArrayList();
-        callables.add(new WebSocketDataConsumer<>(
-                Constants.PRICES_DATA_WEBSOCKET_URL, KafkaProducingWebSocketEndPoint.class));
-
-        Constants.DATA_ELIGIBLE_EXCHANGES.forEach(exchange -> callables.add(new WebSocketDataConsumer<>(
-                Constants.TRADES_DATA_WEBSOCKET_URL.replace("EXCHANGE", exchange), SimpleDataWebSocketEndPoint.class)));
-
         return callables;
     }
 }
