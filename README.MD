@@ -11,25 +11,46 @@ purposes.
 
 What things you need to install the software and how to install them:
 
-- Java 16
+- Java 21
 - Maven
 - Docker (for running Kafka)
 
-### Installing
+## Setup
 
-A step by step series of examples that tell you how to get a development environment running:
+To run this project, you need to have Java, Maven, and Kafka installed on your machine.
 
-1. Clone the repository
-2. Navigate to the project directory
-3. Run `mvn clean install` to build the project
+1. Clone the repository:
 
-## Running the tests
+```bash
+git clone https://github.com/Shrey-Viradiya/CoinCapDataConsumer.git
+```
 
-Explain how to run the automated tests for this system.
+2. Navigate to the project directory:
 
-## Deployment
+```bash
+cd CoinCapDataConsumer
+```
 
-Add additional notes about how to deploy this on a live system.
+3. Build the project:
+
+```bash
+mvn clean install
+```
+
+4. Run the project:
+
+```bash
+java -cp target/CoinCapDataConsumer-1.0-SNAPSHOT.jar <<path/to/configuration_file.yaml>> 
+```
+
+or
+
+use can use docker image.
+
+```bash
+docker build -t coin-cap-consumer .
+docker run --name BRTPP -d coin-cap-consumer
+```
 
 ## Built With
 
