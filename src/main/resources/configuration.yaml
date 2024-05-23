@@ -1,4 +1,4 @@
 host: https://api.coincap.io
 pollingInterval: 60000
 kafkaTopic: COINCAP_REALTIME_PRICE_DATA
-bootstrapServer: host.docker.internal:9092
+bootstrapServer: kafka-server:9092
