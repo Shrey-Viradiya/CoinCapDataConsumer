@@ -7,9 +7,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a31a77c5-95c3-4c0d-aae2-4be6d3a77fb2" name="Changes" comment="Changing Few Things">
+    <list default="true" id="a31a77c5-95c3-4c0d-aae2-4be6d3a77fb2" name="Changes" comment="Correcting README.MD">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -429,11 +428,18 @@
       <option name="project" value="LOCAL" />
       <updated>1716483024978</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Correcting README.MD">
+      <option name="closed" value="true" />
+      <created>1716489881379</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1716489881379</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Removed unused tests" />
     <MESSAGE value="Removed unused tests and logging corrected" />
     <MESSAGE value="Removing All the consumers and creating a single consumer" />
     <MESSAGE value="Removing All the data response class and creating a data response class with type reference" />
@@ -458,7 +464,8 @@
     <MESSAGE value="Waiting Reduced" />
     <MESSAGE value="Kafka Config Changed" />
     <MESSAGE value="Changing Few Things" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changing Few Things" />
+    <MESSAGE value="Correcting README.MD" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correcting README.MD" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
