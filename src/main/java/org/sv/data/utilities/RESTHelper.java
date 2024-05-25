@@ -22,7 +22,7 @@ public class RESTHelper {
         return executeRequest(httpGet);
     }
 
-    private static String executeRequest(HttpUriRequest request) throws IOException {
+    static String executeRequest(HttpUriRequest request) throws IOException {
         try (CloseableHttpResponse response = httpClient.execute(request)) {
             int statusCode = response.getStatusLine().getStatusCode();
             if (statusCode >= 200 && statusCode < 300) {
