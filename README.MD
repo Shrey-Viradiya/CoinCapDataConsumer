@@ -15,6 +15,24 @@ What things you need to install the software and how to install them:
 - Maven
 - Docker (for running Kafka)
 
+Use the following commands to setup the kafka container in your local docker.
+
+```bash
+docker run -d --name zookeeper -e ALLOW_ANONYMOUS_LOGIN=yes bitnami/zookeeper:latest\ndocker run -d --name kafka -e KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181 -e ALLOW_PLAINTEXT_LISTENER=yes -p 9092:9092 --link zookeeper:zookeeper bitnami/kafka:latest
+
+docker network create app-tier --driver bridge
+
+docker run -d --name kafka-server --hostname kafka-server 
+    --network app-tier 
+    -e KAFKA_CFG_NODE_ID=0 
+    -e KAFKA_CFG_PROCESS_ROLES=controller,broker 
+    -e KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9093 
+    -e KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT 
+    -e KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=0@kafka-server:9093 
+    -e KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER 
+    bitnami/kafka:latest
+```
+
 ## Setup
 
 To run this project, you need to have Java, Maven, and Kafka installed on your machine.
