@@ -17,20 +17,13 @@ What things you need to install the software and how to install them:
 
 Use the following commands to setup the kafka container in your local docker.
 
+Clone this
+repo: [https://github.com/conduktor/kafka-stack-docker-compose](https://github.com/conduktor/kafka-stack-docker-compose)
+
 ```bash
-docker run -d --name zookeeper -e ALLOW_ANONYMOUS_LOGIN=yes bitnami/zookeeper:latest\ndocker run -d --name kafka -e KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181 -e ALLOW_PLAINTEXT_LISTENER=yes -p 9092:9092 --link zookeeper:zookeeper bitnami/kafka:latest
-
-docker network create app-tier --driver bridge
-
-docker run -d --name kafka-server --hostname kafka-server 
-    --network app-tier 
-    -e KAFKA_CFG_NODE_ID=0 
-    -e KAFKA_CFG_PROCESS_ROLES=controller,broker 
-    -e KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9093 
-    -e KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT 
-    -e KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=0@kafka-server:9093 
-    -e KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER 
-    bitnami/kafka:latest
+cd kafka-stack-docker-compose
+docker compose -f zk-single-kafka-single.yml up
+docker exec -it kafka1 kafka-topics --create --topic COINCAP_REALTIME_PRICE_DATA --partitions 1 --replication-factor 1 --bootstrap-server localhost:9092
 ```
 
 ## Setup
